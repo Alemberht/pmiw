@@ -1,10 +1,10 @@
 let estado=1;
 let imagenes = [];
 let texto = [];
-let decisión = [];
+let decision = [];
 
 function preload() {
-   for (let i = 1; i < 20; i++) {
+   for (let i = 1; i < 23; i++) {
     imagenes[i] = loadImage("data/Designer_"+nf(i,2)+".png");
   }
 
@@ -12,52 +12,110 @@ function preload() {
 
 function setup() {
 createCanvas(640,480);
-texto[1]= ("Llega a mordor con frodo y sam. quemando el anillo único");
-texto[2]= ("Al salir de la comarca, te encuentras con unos hobbits llamados merry y pippin");
-texto[3]= ("Caen a un barranco y se encuentran a un nazgúl. Qué hacen? ''");
-texto[4]= ("Pasan desapercibidos, logrando huír hacia un pueblo llamado bree, pidiendo alojamiento");
-texto[7]= ("conocen a un montaraz que se hace llamar trancos, ahora los acompaña en su viaje");
-texto[22]= ("llegan a rivendell y se enteran que tienen que llevar el anillo a mordor al monte del destino, destruyéndolo en el acto");
-texto[8]= ("Salen de Rivendel, acompañados por 4 compañeros más, gandalf, Boromir, Legolas y Gimli");
-texto[9]= ("Llegan a Minas moria, allí gandalf muere y logran pasar al otro lado, llegando al paso de gondor");
-texto[10]= ("Luego Boromir muere intentado quitartle el anillo a frodo");
-texto[11]= ("Sam te decide acompañar en tu viaje solo y emprender el viaje a mordor junto a ti");
-texto[12]= (" Conocen a una criatura llamada Gollum y los acompaña en el viaje");
-texto[21]= ("Logran llegar a mordor");
-texto[13]= ("Al llegar al monte del destino el anillo te tienta, ofreciéndote juventud y poder");
-texto[18]= ("Corrupto, te pones el anillo. viniendo gollum hacia ti. Arráncandote el dedo del anillo, en eso, los dos se caen con gollum teniendo el anillo hacia la boca del volcána.");
-texto[19]= ("Sam te salva de morir");
-texto[20]= ("La tierra media se ha salvado");
-
-//ruta secndaria 1
-
-texto[5]= ("Los nazgúl los persiguen y les dan caza");
-texto[6]= ("El anillo único ahora es de Sauron, la tierra media ahora no tiene futuro más que la eterna oscuridad");
-
-//ruta secndaria 2
-
-texto[14]= ("Con el tiempo , alguien más intenta robarte el anillo en medio de la noche");
-texto[15]= ("Te lo roba, y desaparece. haciendo que el anillo se pierda por milenios una vez más");
-
-//ruta secndaria 3
-
-texto[16]= ("Al intentarlo arrojar al volcán por voluntad propia, gollum te mata a traición, robándo el anillo en el acto");
-texto[17]= ("Ahora el anillo lo tiene gollum y  es cuestión de tiempo para que los Nazgul lo recuperen");
-
-//DECISIONES
-decisión[1] = ("Esconderse");
-decisión[2] = ("Huir");
-
-decisión[3] = ("Seguir solo");
-decisión[4] = ("Quedarse con la compañía");;
-
-decisión[5] = ("El anillo es mío");
-decisión[6] = ("Arrojar el anillo al volcán");;
-
+textos();
 }
 
 
 function draw() {
  background(200);
   pantallas();
+}
+
+function mousePressed() {
+  
+//  PRINCIPAL
+ 
+ if(estado==1 && mouseX>280 && mouseX<380 &&  mouseY>370 && mouseY < 420){//1 a 2
+    estado=2;
+  }
+  if(estado==2 && mouseX>280 && mouseX<380 &&  mouseY>320 && mouseY < 370){//2 a 3
+    estado=3;
+  }
+  if(estado==3 && mouseX>90 && mouseX<190 &&  mouseY>370 && mouseY < 420){//3 a 4
+    estado=4;
+  }
+  if(estado==4 && mouseX>280 && mouseX<380 &&  mouseY>370 && mouseY < 420){//4 a 7
+    estado=7;
+}
+ if(estado==7 && mouseX>280 && mouseX<380 &&  mouseY>320 && mouseY < 370){//7 a 22
+    estado=22;
+}
+if(estado==22 && mouseX>280 && mouseX<380 &&  mouseY>370 && mouseY < 420){//22 a 8
+    estado=8;
+}
+if(estado==8 && mouseX>280 && mouseX<380 &&  mouseY>320 && mouseY < 370){//8 a 9
+    estado=9;
+}
+if(estado==9 && mouseX>280 && mouseX<380 &&  mouseY>370 && mouseY < 420){//9 a 10
+    estado=10;
+}
+if(estado==10 && mouseX>90 && mouseX<190 &&  mouseY>370 && mouseY < 420){//10 a 11
+    estado=11;
+  }
+  if(estado==11 && mouseX>90 && mouseX<190 &&  mouseY>370 && mouseY < 420){//11 a 12
+    estado=12;
+  }
+   if(estado==12 && mouseX>280 && mouseX<380 &&  mouseY>320 && mouseY < 370){//12 a 21
+    estado=21;
+  }
+   if(estado==21 && mouseX>280 && mouseX<380 &&  mouseY>370 && mouseY < 420){//21 a 13
+    estado=13;
+  }
+  if(estado==13 && mouseX>90 && mouseX<190 &&  mouseY>370 && mouseY < 420){//13 a 18
+    estado=18;
+}
+ if(estado==18 && mouseX>280 && mouseX<380 &&  mouseY>370 && mouseY < 420){//18 a 19
+    estado=19;
+  }
+   if(estado==19 && mouseX>280 && mouseX<380 &&  mouseY>320 && mouseY < 370){//19 a 20
+    estado=20;
+  }
+ if(estado==20 && mouseX>280 && mouseX<380 &&  mouseY>370 && mouseY < 420){//20 a 1
+    estado=1;
+  }
+  
+  
+  //RAMA 1
+  
+   if(estado==3 && mouseX>440 && mouseX<540 &&  mouseY>370 && mouseY < 420){//3 a 5
+    estado=5;
+  }
+  if(estado==5 && mouseX>280 && mouseX<380 &&  mouseY>370 && mouseY < 420){//1 a 2
+    estado=6;
+  }
+    if(estado==6 && mouseX>280 && mouseX<380 &&  mouseY>320 && mouseY < 370){//2 a 3
+    estado=1;
+  }
+  
+  //RAMA 2
+  if(estado==10 && mouseX>440 && mouseX<540 &&  mouseY>370 && mouseY < 420){//13 a 14
+    estado=14;
+  }
+  if(estado==14 && mouseX>280 && mouseX<380 &&  mouseY>370 && mouseY < 420){//14 a 15
+    estado=15;
+  }
+    if(estado==15 && mouseX>280 && mouseX<380 &&  mouseY>320 && mouseY < 370){//15 a 1
+    estado=1;
+  }
+  
+  //RAMA 3
+  if(estado==10 && mouseX>440 && mouseX<540 &&  mouseY>370 && mouseY < 420){//13 a 14
+    estado=14;
+  }
+  if(estado==14 && mouseX>280 && mouseX<380 &&  mouseY>370 && mouseY < 420){//14 a 15
+    estado=15;
+  }
+    if(estado==15 && mouseX>280 && mouseX<380 &&  mouseY>320 && mouseY < 370){//15 a 1
+    estado=1;
+  }
+  
+   if(estado==13 && mouseX>440 && mouseX<540 &&  mouseY>370 && mouseY < 420){//13 a 16
+    estado=16;
+  }
+  if(estado==16 && mouseX>280 && mouseX<380 &&  mouseY>370 && mouseY < 420){//16 a 17
+    estado=17;
+  }
+    if(estado==17 && mouseX>280 && mouseX<380 &&  mouseY>320 && mouseY < 370){//17 a 1
+    estado=1;
+  }
 }
