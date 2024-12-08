@@ -1,7 +1,7 @@
 function manejarTransiciones(estadoActual) {
   // PRINCIPAL
   if (estadoActual == 1 && mouseX > 280 && mouseX < 380 && mouseY > 370 && mouseY < 420) { // 1 a 2
-    sonido.play(true);
+    sonido.play(true); // Reproduce el sonido una sola vez
     return 2;
   }
   if (estadoActual == 2 && mouseX > 280 && mouseX < 380 && mouseY > 320 && mouseY < 370) { // 2 a 3
